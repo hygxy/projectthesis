@@ -141,7 +141,7 @@ public:
          location_pub =nh_.advertise<ObjectDetection::Location>("Location",1);
          ObjectDetection::Location l;
          l.x =((float)(centerX-959.5)*(cv_ptr_depth->image.at<float>(centerX,centerY)/1000.0f))/(1081.37);
-         l.y =((float)(centerY-539.5)*(cv_ptr_depth->image.at<float>(centerX,centerY)/1000.0f))/(1081.37);
+         l.y =((float)(centerY+1-539.5)*(cv_ptr_depth->image.at<float>(centerX,centerY)/1000.0f))/(1081.37);
          l.z =(cv_ptr_depth->image.at<float>(centerX,centerY)/1000.0f);
          location_pub.publish(l);
       }
