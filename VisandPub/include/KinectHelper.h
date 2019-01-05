@@ -5,6 +5,11 @@
 #include <thread>
 #include <vector>
 #include <limits>
+#include <unistd.h>
+#include <chrono>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -82,18 +87,7 @@ public:
     void start();
     void stop();
 
-    float getcolmap(int x)
-    {
-        return colmap[x];
-    }
 
-    float getrowmap(int y)
-    {
-        return rowmap[y];
-    }
-
-    float getpixelx(float);
-    float getpixely(float);
 
 
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr getcloud();

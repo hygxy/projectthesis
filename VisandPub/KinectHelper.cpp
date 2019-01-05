@@ -1,17 +1,3 @@
-#include <iostream>
-#include <stdexcept>
-#include <chrono>
-#include <thread>
-#include <string>
-
-
-
-#include <opencv2/opencv.hpp>
-#include <opencv2/objdetect/objdetect.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/features2d/features2d.hpp>
-
 #include <libfreenect2/libfreenect2.hpp>
 #include <libfreenect2/frame_listener_impl.h>
 #include <libfreenect2/registration.h>
@@ -132,18 +118,6 @@ KinectHelper::KinectHelper(Processor depthProcessor) :
 
 }
 
-
-float KinectHelper::getpixelx(float x)
- {
-     libfreenect2::Freenect2Device::IrCameraParams ip =this->dev->getIrCameraParams();
-     return x*ip.fx+ip.cx-0.5;
- }
-
- float KinectHelper::getpixely(float y)
- {
-     libfreenect2::Freenect2Device::IrCameraParams ip =this->dev->getIrCameraParams();
-     return y*ip.fy+ip.cy-0.5;
- }
 
 void KinectHelper::trampoline( KinectHelper* KinectHelper)
 {
